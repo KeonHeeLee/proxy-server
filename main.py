@@ -3,8 +3,20 @@ import requests
 
 app = Flask(__name__)
 
+'''
+Proxy Redirection Step
+1. Recieve HTTP-request from client.
+2. This server connect to other server. (request to other server)
+3. Get response by other server.
+4. Send this response to client with header what you customize.
+'''
+
 @app.route("/naver", methods=["GET"])
 def naver_redirection():
+    '''
+    - GET method test 1
+    - redirect to naver web-site
+    '''
     res = requests.request("GET", "https://www.naver.com")
     body = res.content
     response = make_response(body, 200)
@@ -13,6 +25,10 @@ def naver_redirection():
 
 @app.route("/daum", methods=["GET"])
 def daum_redirection():
+    '''
+    - GET method test 1
+    - redirect to naver web-site
+    '''
     res = requests.request("GET", "https://www.daum.net")
     body = res.content
     response = make_response(body, 200)
